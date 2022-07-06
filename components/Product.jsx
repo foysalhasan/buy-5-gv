@@ -10,6 +10,7 @@ export const Product = ({ item }) => {
         href={item.permalink}
         className="flex justify-center items-center py-2 bg-indigo-700 hover:bg-blue-500 transition text-white text-xs lg:text-sm font-bold rounded uppercase cursor-pointer w-32 ml-auto lg:mx-auto"
         target="_blank"
+        rel="noopener noreferrer"
       >
         <span className="hidden lg:inline-block">BUY NOW</span>
         <span className="mr-2 tracking-widest h-8 w-8 shrink-0 ring-1 ring-white ring-offset-1  rounded-full bg-gray-900 flex items-center justify-center lg:hidden">

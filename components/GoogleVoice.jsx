@@ -57,7 +57,7 @@ export const GoogleVoice = () => {
           {isLoading ||
             (products?.length === 0 && (
               <div className="text-xl font-josefin font-medium text-rose-600">
-                No Number Available For <span className="font-bold capitalize text-sky-600">"{label}"</span> State Right Now ! Please Select Another State !
+                No Number Available For <span className="font-bold capitalize text-sky-600">{label}</span> State Right Now ! Please Select Another State !
               </div>
             ))}
         </div>
