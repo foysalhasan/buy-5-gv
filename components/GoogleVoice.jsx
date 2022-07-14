@@ -3,10 +3,7 @@ import Head from 'next/head'
 import { useGetProducts } from '../services'
 import React, { useState } from 'react'
 import { options } from '../services/category'
-// const Selects = dynamic(
-//   import('react-select').then((mod) => mod.Selects),
-//   { ssr: false }
-// )
+
 import Select from 'react-select'
 import { Product } from './Product'
 import Skeleton from 'react-loading-skeleton'
@@ -41,7 +38,7 @@ export const GoogleVoice = () => {
         <div className="mb-5 relative z-50">
           <Select
             isSearchable
-            placeholder="Choode State"
+            placeholder="Choose State"
             options={options}
             onChange={handleSelect}
             className="w-80"
