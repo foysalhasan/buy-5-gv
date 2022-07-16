@@ -18,7 +18,7 @@ export const Product = ({ item }) => {
         </span>
         <span className="inline-block lg:hidden">BUY NOW</span>
       </a>
-      <span className="lg:inline-block hidden shrink-0 text-sm tracking-widest text-center px-5 py-2 rounded bg-rose-500 text-white font-bold">
+      <span className="lg:inline-block ml-2 hidden shrink-0 text-sm tracking-widest text-center px-5 py-2 rounded bg-rose-500 text-white font-bold">
         {item.price}$
       </span>
     </div>
