@@ -1,26 +1,41 @@
-export const Product = ({ item }) => {
-  const { categories } = item
+import { BsCheck2Circle } from 'react-icons/bs'
+export const Product = ({ item, color }) => {
   return (
-    <div className="bg-indigo-100 px-4 text-indigo-700 border-l-4 border-indigo-400 py-5 h-16 rounded text-xl font-semibold  flex justify-between items-center">
-      <div className="inline-block w-32">
-        <span className="text-sm  lg:text-base">{item.name}</span> <br />
-        <span className="text-xs  lg:text-sm capitalize block -mt-1 relative text-gray-800 font-bold">{categories[0].name}</span>
-      </div>
-      <a
-        href={item.permalink}
-        className="flex justify-center items-center py-2 bg-indigo-700 hover:bg-blue-500 transition text-white text-xs lg:text-sm font-bold rounded uppercase cursor-pointer w-32 ml-auto lg:mx-auto"
-        target="_blank"
-        rel="noopener noreferrer"
+    <div className="bg-white border shadow-sm pb-5 rounded-md flex flex-col relative overflow-hidden">
+      <div
+        style={{ backgroundColor: color }}
+        className="absolute top-[-18px] right-[-20px] text-white font-bold w-16 h-16 rounded-full text-center flex justify-center items-center text-lg pt-5 transform pr-4 font-josefin"
       >
-        <span className="hidden lg:inline-block">BUY NOW</span>
-        <span className="mr-2 tracking-widest h-8 w-8 shrink-0 ring-1 ring-white ring-offset-1  rounded-full bg-gray-900 flex items-center justify-center lg:hidden">
-          {item.price}$
-        </span>
-        <span className="inline-block lg:hidden">BUY NOW</span>
-      </a>
-      <span className="lg:inline-block ml-2 hidden shrink-0 text-sm tracking-widest text-center px-5 py-2 rounded bg-rose-500 text-white font-bold">
         {item.price}$
-      </span>
+      </div>
+      <div style={{ backgroundColor: color + '40', color: color }} className="text-center py-3 tracking-wider mb-4 font-bold text-2xl  font-Oswald">
+        5 GOOGLE VOICE
+      </div>
+      <div style={{ color: color }} className="text-2xl font-bold mb-3 px-3 space-y-1">
+        <div className="flex items-center gap-2">
+          <BsCheck2Circle />
+          <span className="text-base text-gray-900">100% Verified Google Voice</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <BsCheck2Circle />
+          <span className="text-base text-gray-900">5 Unique GV Number</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <BsCheck2Circle />
+          <span className="text-base text-gray-900">Instant File Download</span>
+        </div>
+      </div>
+      <div className="px-3">
+        <a
+          href={item.permalink}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ backgroundColor: color }}
+          className="font-semibold block w-full text-base px-5 py-3 text-center text-white rounded font-josefin transition duration-300 transform hover:scale-95"
+        >
+          BUY NOW
+        </a>
+      </div>
     </div>
   )
 }

@@ -1,60 +1,38 @@
-// import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import { useGetProducts } from '../services'
-import React, { useState } from 'react'
-import { options } from '../services/category'
-
-import Select from 'react-select'
+import React from 'react'
 import { Product } from './Product'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 export const GoogleVoice = () => {
-  const [category, setCategory] = useState('')
-  const [label, setLabel] = useState('')
-
-  const { isLoading, data: products } = useGetProducts(category)
-
+  const { isLoading, data: products } = useGetProducts()
   const showSkeleton = (num) => {
     return (
       <>
         {Array.from(Array(num).keys()).map((el, index) => (
-          <Skeleton key={index} className="h-16" inline={true} />
+          <Skeleton key={index} className="h-44" inline={true} />
         ))}
       </>
     )
   }
-  const handleSelect = (selectedData) => {
-    const { value, label } = selectedData
-    setCategory(value)
-    setLabel(label)
-  }
+  const colors = ['#E0203E', '#661090', '#16a085', '#2980b9', '#e67e22']
   return (
     <>
       <Head>
-        <title>Buy Google Voice</title>
+        <title>Buy 5 Google Voice</title>
       </Head>
       <div className="bg-gray-200 min-h-screen py-4 container relative mx-auto flex flex-col items-center justify-center px-4 lg:px-10">
-        <div className="mb-5 relative z-50">
-          <Select
-            isSearchable
-            placeholder="Choose State"
-            options={options}
-            onChange={handleSelect}
-            className="w-80"
-            id="long-value-select"
-            instanceId="long-value-select"
-          />
-        </div>
-        <div className="bg-white rounded shadow-md border-gray-200 px-2 py-8 lg:px-8 w-full mx-auto max-w-full overflow-y-scroll grid lg:grid-cols-3 gap-4 h-[600px] content-start">
-          {isLoading && showSkeleton(18)}
-          {products?.map((item) => (
-            <Product key={item?.id} item={item} />
+        <div className=" px-2 py-8 lg:px-8 w-full mx-auto max-w-full grid lg:grid-cols-4 gap-4">
+          {isLoading && showSkeleton(8)}
+          {products?.map((item, index) => (
+            <Product key={item?.id} item={item} color={colors[index % colors.length]} />
           ))}
           {isLoading ||
             (products?.length === 0 && (
               <div className="text-xl font-josefin font-medium text-rose-600">
-                No Number Available For <span className="font-bold capitalize text-sky-600">{label}</span> State Right Now ! Please Select Another State !
+                5 Google Voice <span className="font-bold capitalize text-sky-600">Package</span> is Not Available RIght Now Please Select Another Package or
+                Custom Number
               </div>
             ))}
         </div>

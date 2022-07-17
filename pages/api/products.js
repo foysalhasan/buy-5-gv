@@ -21,11 +21,10 @@ export default async function handler(req, res) {
     success: false,
     products: [],
   }
-  const { cat } = req?.query ?? ''
   try {
     const { data } = await api.get('products', {
-      category: cat,
-      tag: '71',
+      category: '82',
+      tag: '83',
       per_page: 100,
       stock_status: 'instock',
       status: 'publish',

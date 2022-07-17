@@ -1,15 +1,15 @@
 import axios from 'axios'
 import { useQuery } from 'react-query'
 
-const getWooProducts = async (cat = '') => {
+const getWooProducts = async () => {
   try {
-    const { data } = await axios.get(`/api/products?cat=${cat}`)
+    const { data } = await axios.get(`/api/products`)
     return data?.products
   } catch (error) {
     console.log(err.message)
   }
 }
 
-export const useGetProducts = (cat) => {
-  return useQuery(['products', cat], () => getWooProducts(cat))
+export const useGetProducts = () => {
+  return useQuery('products', getWooProducts)
 }
